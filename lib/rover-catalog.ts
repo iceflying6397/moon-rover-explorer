@@ -1,0 +1,60 @@
+export type RoverModelId = 'selene' | 'viper' | 'white-mecha';
+export const DEFAULT_ROVER_MODEL: RoverModelId = 'selene';
+export const ROVER_MODELS = {
+  selene: {
+    id: 'selene',
+    name: 'SELENE',
+    label: 'SELENE · 流线月球车',
+    description: '流线月球车',
+    url: '/assets/rover/selene-rover.glb',
+    wheelCount: 4,
+    scale: 0.5,
+    radius: 0.32,
+    contactRadius: 0.32625,
+    halfTrack: 0.88,
+    halfWheelbase: 0.99,
+    groundOffset: 0.005,
+    targetHeight: 0.57,
+    cameraScale: 1.12,
+    treadWidth: 0.18,
+  },
+  viper: {
+    id: 'viper',
+    name: 'VIPER',
+    label: 'VIPER · 极地探测车',
+    description: '月球极地探测车',
+    url: '/assets/rover/viper.glb',
+    wheelCount: 4,
+    scale: 1,
+    radius: 0.25,
+    contactRadius: 0.25,
+    halfTrack: 0.6098,
+    halfWheelbase: 0.6418,
+    groundOffset: 0.255,
+    targetHeight: 0.85,
+    cameraScale: 1,
+    treadWidth: 0.17,
+  },
+  'white-mecha': {
+    id: 'white-mecha',
+    name: '白色机甲',
+    label: '白色机甲 · 六轮巡视器',
+    description: '白色机甲六轮巡视器',
+    url: '/assets/rover/white-mecha-rover.glb',
+    wheelCount: 6,
+    scale: 1,
+    radius: 0.2275,
+    contactRadius: 0.229,
+    halfTrack: 0.925,
+    halfWheelbase: 0.885,
+    groundOffset: 0,
+    targetHeight: 0.8,
+    cameraScale: 1.2,
+    treadWidth: 0.175,
+    wheelOffsets: [0.89, -0.025, -0.88],
+  },
+} as const;
+export const ROVER_OPTIONS = Object.values(ROVER_MODELS);
+export function isRoverModelId(value: unknown): value is RoverModelId {
+  return typeof value === 'string' && Object.hasOwn(ROVER_MODELS, value);
+}
