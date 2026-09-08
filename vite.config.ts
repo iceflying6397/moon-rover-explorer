@@ -12,5 +12,6 @@ export default defineConfig({
       ignored: ['**/design/**', '**/research/**', '**/assets-source/**', '**/backups/**', '**/dist/**'],
     },
   },
-  plugins: [vinext()],
+  // Keep static export here so hosts do not mistake this Vinext app for Next.js.
+  plugins: [vinext({ nextConfig: { output: 'export' } })],
 });
